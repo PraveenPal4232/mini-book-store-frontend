@@ -21,6 +21,7 @@ header {
 nav {
   display: flex;
   justify-content: center;
+  padding: 1em;
 }
 nav a {
   padding: 0.5rem;
@@ -29,4 +30,22 @@ nav a {
 footer {
   padding: 1em;
   text-align: center;
+}
+.books_warp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.bookcard img {
+  width: 255px;
+  height: 400px;
+}
+.bookcard {
+  width: calc(255px + 2em);
+  padding: 1em;
+  border: 2px solid #000000;
+  margin: 0 2em 2em 0;
+}
+.bookcard:nth-child(4n + 0) {
+  margin-right: 0px;
 }
