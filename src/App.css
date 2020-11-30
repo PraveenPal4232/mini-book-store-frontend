@@ -44,8 +44,5 @@ footer {
   width: calc(255px + 2em);
   padding: 1em;
   border: 2px solid #000000;
-  margin: 0 2em 2em 0;
-}
-.bookcard:nth-child(4n + 0) {
-  margin-right: 0px;
+  margin: 0 1em 2em 1em;
 }
