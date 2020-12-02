@@ -42,15 +42,14 @@ const HomePage = () => {
                     <p>Loading data...</p> : BookList.map((book) => 
                     <BookCard
                     key={book._id}
+                    id={book._id}
                     BookCover={book.cover}
                     BookName={book.name}
                     BookAuthor={book.author}
                     BookPrice={book.price}
                     />
-                )
-                    
+                )   
                 }
-                {}
             </div>
         </main>
     )

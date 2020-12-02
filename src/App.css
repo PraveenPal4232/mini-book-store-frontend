@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,400&family=Josefin+Sans:wght@400;700&display=swap");
 *,
 *::before,
 *::after {
@@ -8,6 +9,15 @@
 }
 html {
   font-family: "Roboto Slab", serif;
+}
+a {
+  color: #000000;
+  text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+  text-decoration: underline;
 }
 header {
   padding: 1em;
@@ -25,7 +35,6 @@ nav {
 }
 nav a {
   padding: 0.5rem;
-  color: #000;
 }
 footer {
   padding: 1em;
@@ -39,10 +48,52 @@ footer {
 .bookcard img {
   width: 255px;
   height: 400px;
+  object-fit: cover;
 }
 .bookcard {
   width: calc(255px + 2em);
   padding: 1em;
   border: 2px solid #000000;
   margin: 0 1em 2em 1em;
+}
+.bookcard:hover {
+  box-shadow: 5px 5px;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Book Page */
+
+.book_page {
+  padding: 0 25px;
+  margin-bottom: 1em;
+}
+.book_warp {
+  display: flex;
+  flex-direction: column;
+}
+.book_image_box img {
+  width: 100%;
+  box-shadow: 7px 7px;
+}
+.book_content {
+  padding: 1em 0;
+}
+.book_summary {
+  padding-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .book_page {
+    max-width: 1000px;
+    margin: auto;
+  }
+  .book_warp {
+    display: flex;
+    flex-direction: row;
+  }
+  .book_image_box {
+    flex: 0 0 40%;
+    max-width: 40%;
+    margin-right: 5%;
+  }
 }
