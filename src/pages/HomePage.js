@@ -6,7 +6,6 @@ import BookCard from '../components/BookCard'
 const HomePage = () => {
     const [BookList, SetBookList] = useState([]);
     const [IsLoading, SetIsLoading] = useState(false);
-    const [Test, SetTest] = useState("Praveen Pal");
 
     // Fetch books from server
     const fetchBooks = () => {
@@ -30,9 +29,6 @@ const HomePage = () => {
         SetIsLoading(false);
 
       },[]);
-
-      console.log(BookList);
-    
 
     return (
         <main>   

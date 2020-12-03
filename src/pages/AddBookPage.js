@@ -50,8 +50,9 @@ const AddBookPage = () => {
 
     return (
         <main>
-            <div className="book_page book_edit_page">
-                <div className="book_edit_warp">
+            <div className="book_page add_book_page">
+                <div className="add_book_warp">
+                <h1 className="page_heading">Add Book</h1>
                 <form onSubmit={handleSubmit}>
 
               <div className="form-group">
@@ -61,6 +62,7 @@ const AddBookPage = () => {
                   className="form-control"
                   id="name"
                   name="name"
+                  placeholder="Book Name"
                   required
                   onChange={handleChange}
                   value={Book.name}
@@ -74,6 +76,7 @@ const AddBookPage = () => {
                   className="form-control"
                   id="author"
                   name="author"
+                  placeholder="Book Author"
                   required
                   onChange={handleChange}
                   value={Book.author}
@@ -87,6 +90,7 @@ const AddBookPage = () => {
                   className="form-control"
                   id="price"
                   name="price"
+                  placeholder="Book Price"
                   required
                   onChange={handleChange}
                   value={Book.price}
@@ -97,9 +101,10 @@ const AddBookPage = () => {
                 <label htmlFor="summary">Summary</label>
                 <textarea
                   type="text"
-                  className="form-control"
+                  className="form-control form-control-textarea"
                   id="summary"
                   name="summary"
+                  placeholder="Book Summary"
                   required
                   onChange={handleChange}
                   value={Book.summary}
@@ -110,7 +115,7 @@ const AddBookPage = () => {
                 <label htmlFor="cover">Book Cover</label>
                 <input
                   type="file"
-                  className="form-control"
+                  className="form-control-file"
                   id="cover"
                   name="cover"
                   required
@@ -119,8 +124,8 @@ const AddBookPage = () => {
               </div>
 
 
-              <button type="submit" className="btn btn-primary">
-                Update
+              <button type="submit" className="btn btn-dark">
+                Upload
               </button>
             </form>
                 </div>

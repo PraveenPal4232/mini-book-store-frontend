@@ -39,7 +39,6 @@ const BookPage = () => {
 
       },[]);
 
-      console.log(Book);
     return (
         <main>
             <div className="book_page">
@@ -58,7 +57,9 @@ const BookPage = () => {
                     <h1>{Book.name}</h1>
                     <h4>{Book.price}</h4>
                     <p className="book_summary">{Book.summary}</p>
+                    <a href={`./edit/${id}`} className="book_edit" >Edit Book</a>
                     </div>
+                    
                 </div>
 }
             </div>

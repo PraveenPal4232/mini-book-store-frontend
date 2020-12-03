@@ -19,7 +19,7 @@ function App() {
       <Header />
       <Router>
       <Route path="/" exact component={HomePage} />
-      <Route path="/about" exact component={AboutPage} />
+      <Route path="/about" component={AboutPage} />
       <Route path="/book/:id" exact component={BookPage} />
       <Route path="/book/edit/:id" exact component={EditBookPage} />
       <Route path="/add/book" exact component={AddBookPage} />

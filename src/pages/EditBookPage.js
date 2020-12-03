@@ -90,8 +90,9 @@ const EditBookPage = () => {
 
     return (
         <main>
-            <div className="book_page book_edit_page">
-                <div className="book_edit_warp">
+            <div className="book_page edit_book_page">
+                <div className="edit_book_warp">
+                  <h1 className="page_heading">Edit Book</h1>
                 <form onSubmit={handleSubmit}>
 
               <div className="form-group">
@@ -137,7 +138,7 @@ const EditBookPage = () => {
                 <label htmlFor="summary">Summary</label>
                 <textarea
                   type="text"
-                  className="form-control"
+                  className="form-control form-control-textarea"
                   id="summary"
                   name="summary"
                   required
@@ -150,7 +151,7 @@ const EditBookPage = () => {
                 <label htmlFor="cover">Book Cover</label>
                 <input
                   type="file"
-                  className="form-control"
+                  className="form-control-file"
                   id="cover"
                   name="cover"
                   required
@@ -159,15 +160,15 @@ const EditBookPage = () => {
               </div>
 
 
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-dark">
                 Update
               </button>
             </form>
 
-            <br />
+            <div className="divider">Danger Zone</div>
             
             <form onSubmit={handleDelete}>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-danger">
                 Delete
               </button>
             </form>
