@@ -6,12 +6,11 @@ import {
 
 const EditBookPage = () => {
     const [Book, SetBook] = useState({
-        id:"",
         name:"",
         author:"",
         price:"",
         summary:"",
-        cover:""
+        cover:null
     });
     const [IsLoading, SetIsLoading] = useState(false);
     let { id } = useParams();
@@ -57,28 +56,36 @@ const EditBookPage = () => {
       const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('myImage',Book.cover);
+        formData.append('name',Book.name);
+        formData.append('author',Book.author);
+        formData.append('price',Book.price);
+        formData.append('summary',Book.summary);
+        formData.append('cover',Book.cover);
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         };
-        const book = {
-          id:Book.id,
-          name:Book.name,
-          author:Book.author,
-          price:Book.price,
-          summary:Book.summary,
-          cover:Book.cover
-        };
-        console.log(book);
     
         axios
           .post(
-            `http://localhost:5000/books/update/${id}`, formData, config, book
+            `http://localhost:5000/books/update/${id}`, formData, config
           )
           .then((res) => console.log(res.data))
           .catch((err) => console.log(err));
+
+      };
+
+      // Delete book to server
+      const handleDelete = (e) => {
+        e.preventDefault();
+    
+        axios
+          .delete(
+            `http://localhost:5000/books/${id}`)
+          .then((res) => console.log(res.data))
+          .catch((err) => console.log(err));
+
       };
 
     return (
@@ -154,6 +161,14 @@ const EditBookPage = () => {
 
               <button type="submit" className="btn btn-primary">
                 Update
+              </button>
+            </form>
+
+            <br />
+            
+            <form onSubmit={handleDelete}>
+              <button type="submit" className="btn btn-primary">
+                Delete
               </button>
             </form>
                 </div>

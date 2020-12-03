@@ -21,8 +21,8 @@ function App() {
       <Route path="/" exact component={HomePage} />
       <Route path="/about" exact component={AboutPage} />
       <Route path="/book/:id" exact component={BookPage} />
-      <Route path="/book/edit/:id" component={EditBookPage} />
-      <Route path="/book/add" component={AddBookPage} />
+      <Route path="/book/edit/:id" exact component={EditBookPage} />
+      <Route path="/add/book" exact component={AddBookPage} />
      </Router>
      <Footer />
     </div>
