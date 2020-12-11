@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage'
 import BookPage from './pages/BookPage'
 import EditBookPage from './pages/EditBookPage'
 import AddBookPage from './pages/AddBookPage'
+import Welcome from './pages/Welcome'
 
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/book/:id" exact component={BookPage} />
       <Route path="/book/edit/:id" exact component={EditBookPage} />
       <Route path="/add/book" exact component={AddBookPage} />
+      <Route path="/welcome" exact component={Welcome} />
      </Router>
      <Footer />
     </div>
