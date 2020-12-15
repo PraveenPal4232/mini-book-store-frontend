@@ -13,9 +13,21 @@ const Welcome = () => {
         wishlist:[],
     });
 
+    const [AuthUser, SetAuthUser] = useState({
+      authEmail:"",
+      authPassword:""
+  });
+
       // Handel Input Change
       const handleChange = (e) => {
         SetUser({...User,
+          [e.target.name]: e.target.value,
+        });
+      };
+
+      // Handel Auth Change
+      const handleAuthChange = (e) => {
+        SetAuthUser({...AuthUser,
           [e.target.name]: e.target.value,
         });
       };
@@ -33,8 +45,8 @@ const Welcome = () => {
         const formData = new FormData();
         formData.append('name',User.name);
         formData.append('email',User.email);
-        formData.append('price',User.password);
-        formData.append('summary',User.bio);
+        formData.append('password',User.password);
+        formData.append('bio',User.bio);
         formData.append('profile',User.profile);
         formData.append('isAuthor',User.isAuthor);
         formData.append('myBooks',User.myBooks);
@@ -47,7 +59,26 @@ const Welcome = () => {
     
         axios
           .post(
-            `http://localhost:5000/users/register`, formData, config
+            `http://localhost:5000/users/login`, formData, config
+          )
+          .then((res) => console.log(res.data))
+          .catch((err) => console.log(err));
+
+      };
+
+
+      // Login AutUser to server
+      const handleAuthSubmit = (e) => {
+        e.preventDefault();
+        
+        const logInUser = {
+          email:AuthUser.authEmail,
+          password:AuthUser.authPassword
+        }
+    
+        axios
+          .post(
+            `http://localhost:5000/users/login`, logInUser
           )
           .then((res) => console.log(res.data))
           .catch((err) => console.log(err));
@@ -58,6 +89,49 @@ const Welcome = () => {
         <main>
             <div className="User_page add_User_page">
                 <div className="add_User_warp">
+
+                <h1 className="page_heading">LogIn User</h1>
+                <form onSubmit={handleAuthSubmit}>
+
+              <div className="form-group">
+                <label htmlFor="authEmail">Email</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="authEmail"
+                  name="authEmail"
+                  placeholder="Email Address"
+                  required
+                  onChange={handleAuthChange}
+                  value={AuthUser.email}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="authPassword">Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="authPassword"
+                  name="authPassword"
+                  placeholder="Your Password"
+                  required
+                  onChange={handleAuthChange}
+                  value={AuthUser.password}
+                />
+              </div>
+
+
+              <button type="submit" className="btn btn-dark">
+              Login User
+              </button>
+            </form>
+
+            <br />
+            <br />
+
+            {/* Divider */}
+
                 <h1 className="page_heading">Register New User</h1>
                 <form onSubmit={handleSubmit}>
 

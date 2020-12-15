@@ -123,7 +123,6 @@ const AddBookPage = () => {
                 />
               </div>
 
-
               <button type="submit" className="btn btn-dark">
                 Upload
               </button>
