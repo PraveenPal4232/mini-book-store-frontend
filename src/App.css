@@ -79,7 +79,7 @@ footer {
   padding: 1em 0;
 }
 .book_summary {
-  padding: 10px 0;
+  padding: 15px 0;
 }
 .form-group {
   margin-bottom: 1rem;
@@ -186,6 +186,12 @@ blockquote {
   margin-bottom: 1rem;
 }
 
+.user_profile {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
 @media (min-width: 768px) {
   .book_page {
     max-width: 1000px;
@@ -202,5 +208,9 @@ blockquote {
     flex: 0 0 40%;
     max-width: 40%;
     margin-right: 5%;
+  }
+  .add_to_wishlist {
+    width: 200px;
+    display: block;
   }
 }

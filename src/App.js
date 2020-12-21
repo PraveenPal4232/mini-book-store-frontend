@@ -11,6 +11,7 @@ import BookPage from './pages/BookPage'
 import EditBookPage from './pages/EditBookPage'
 import AddBookPage from './pages/AddBookPage'
 import Welcome from './pages/Welcome'
+import Dashboard from './pages/Dashboard'
 
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
       <Route path="/book/edit/:id" exact component={EditBookPage} />
       <Route path="/add/book" exact component={AddBookPage} />
       <Route path="/welcome" exact component={Welcome} />
+      <Route path="/dashboard" exact component={Dashboard} />
      </Router>
      <Footer />
     </div>

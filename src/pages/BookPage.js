@@ -57,7 +57,8 @@ const BookPage = () => {
                     <h1>{Book.name}</h1>
                     <h4>{Book.price}</h4>
                     <p className="book_summary">{Book.summary}</p>
-                    <a href={`./edit/${id}`} className="book_edit" >Edit Book</a>
+                    <button className="btn btn-dark add_to_wishlist">Add to Wishlist</button>
+                    {/* <a href={`./edit/${id}`} className="book_edit" >Edit Book</a> */}
                     </div>
                     
                 </div>

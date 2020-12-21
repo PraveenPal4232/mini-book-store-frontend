@@ -80,7 +80,12 @@ const Welcome = () => {
           .post(
             `http://localhost:5000/users/login`, logInUser
           )
-          .then((res) => console.log(res.data))
+          .then((res) => {
+          console.log(res.data);
+          localStorage.setItem("userId", res.data.id);
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("isAuthor", res.data.isAuthor);
+        })
           .catch((err) => console.log(err));
 
       };
