@@ -55,6 +55,10 @@ const EditUserPge = () => {
       // Update User to server
       const handleSubmit = (e) => {
         e.preventDefault();
+
+        const userId = localStorage.getItem('userId');
+        const userToken = localStorage.getItem('token');
+
         const formData = new FormData();
         formData.append('name',User.name);
         formData.append('email',User.email);
@@ -66,18 +70,20 @@ const EditUserPge = () => {
         formData.append('wishlist',User.wishlist);
         const config = {
             headers: {
-                'content-type': 'multipart/form-data'
+                'content-type': 'multipart/form-data',
+                'Authorization': `token ${userToken}`
             }
         };
     
         axios
           .post(
-            `http://localhost:5000/users/login`, formData, config
+            `http://localhost:5000/users/update/${userId}`, formData, config
           )
           .then((res) => console.log(res.data))
           .catch((err) => console.log(err));
 
       };
+
 
     return (
         <main>
