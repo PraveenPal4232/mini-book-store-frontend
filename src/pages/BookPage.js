@@ -13,6 +13,7 @@ const BookPage = () => {
         summary:"",
         cover:""
     });
+    const [Wishlist, SetWishlist] = useState([]);
     const [IsLoading, SetIsLoading] = useState(false);
     let { id } = useParams();
 
@@ -26,6 +27,17 @@ const BookPage = () => {
         .catch((err) => console.log(err));
     }
 
+    // Fetch user from server
+    const fetchUser = () => {
+        const uID = localStorage.getItem('userId');
+        axios
+        .get(`http://localhost:5000/users/${uID}`)
+        .then((res) => {
+            SetWishlist(res.data.wishlist);
+        })
+        .catch((err) => console.log(err));
+    }
+
     useEffect(() => {
 
         // Start Loading data from server
@@ -34,10 +46,24 @@ const BookPage = () => {
         // Fetch books from server
         fetchBook();
 
+        // Fetch user from server
+        fetchUser();
+
         // Done Loading data from server
         SetIsLoading(false);
 
       },[]);
+
+      // Add to Wishlist
+      const addToWishlist = () => {
+        SetWishlist([...Wishlist, id] )
+      };
+
+      // Remove from Wishlist
+      const removefromWishlist = () => {
+        const newWishlist = Wishlist.filter(item => item !== id);
+        SetWishlist(newWishlist)
+      };
 
     return (
         <main>
@@ -57,7 +83,13 @@ const BookPage = () => {
                     <h1>{Book.name}</h1>
                     <h4>{Book.price}</h4>
                     <p className="book_summary">{Book.summary}</p>
-                    <button className="btn btn-dark add_to_wishlist">Add to Wishlist</button>
+                    {
+                        Wishlist.includes(id) ?
+                        <button className="btn btn-dark add_to_wishlist" onClick={removefromWishlist}>Remove from Wishlist</button>
+                        :
+                        <button className="btn btn-dark add_to_wishlist" onClick={addToWishlist}>Add to Wishlist</button>
+                    }
+                    
                     {/* <a href={`./edit/${id}`} className="book_edit" >Edit Book</a> */}
                     </div>
                     
