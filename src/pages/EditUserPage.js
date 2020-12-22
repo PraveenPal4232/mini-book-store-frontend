@@ -21,6 +21,7 @@ const EditUserPge = () => {
         .get(`http://localhost:5000/users/${uID}`)
         .then((res) => {
           SetUser(res.data);
+          //console.log(res.data);
         })
         .catch((err) => console.log(err));
     }
@@ -66,8 +67,12 @@ const EditUserPge = () => {
         formData.append('bio',User.bio);
         formData.append('profile',User.profile);
         formData.append('isAuthor',User.isAuthor);
-        formData.append('myBooks',User.myBooks);
-        formData.append('wishlist',User.wishlist);
+        for(var x = 0; x < User.myBooks.length; x++) {
+          formData.append('myBooks', User.myBooks[x])
+        }
+        for(var y = 0; y < User.wishlist.length; y++) {
+          formData.append('wishlist', User.wishlist[y])
+        }
         const config = {
             headers: {
                 'content-type': 'multipart/form-data',
