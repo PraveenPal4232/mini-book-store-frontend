@@ -12,6 +12,7 @@ import EditBookPage from './pages/EditBookPage'
 import AddBookPage from './pages/AddBookPage'
 import Welcome from './pages/Welcome'
 import Dashboard from './pages/Dashboard'
+import EditUserPage from './pages/EditUserPage'
 
 import './App.css';
 
@@ -27,6 +28,7 @@ function App() {
       <Route path="/add/book" exact component={AddBookPage} />
       <Route path="/welcome" exact component={Welcome} />
       <Route path="/dashboard" exact component={Dashboard} />
+      <Route path="/user/edit/" exact component={EditUserPage} />
      </Router>
      <Footer />
     </div>
