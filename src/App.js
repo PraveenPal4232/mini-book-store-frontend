@@ -13,6 +13,8 @@ import AddBookPage from './pages/AddBookPage'
 import Welcome from './pages/Welcome'
 import Dashboard from './pages/Dashboard'
 import EditUserPage from './pages/EditUserPage'
+import LogIn from './pages/LogInPage'
+import Register from './pages/RegisterPage'
 
 import './App.css';
 
@@ -29,6 +31,8 @@ function App() {
       <Route path="/welcome" exact component={Welcome} />
       <Route path="/dashboard" exact component={Dashboard} />
       <Route path="/user/edit/" exact component={EditUserPage} />
+      <Route path="/login" exact component={LogIn} />
+      <Route path="/register" exact component={Register} />
      </Router>
      <Footer />
     </div>

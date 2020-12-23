@@ -36,7 +36,12 @@ nav {
 nav a {
   padding: 0.5rem;
 }
+main {
+  min-height: calc(100vh - 250px);
+  padding: 0 1em;
+}
 footer {
+  margin-top: 2em;
   padding: 1em;
   text-align: center;
 }
@@ -120,6 +125,10 @@ label {
 .form-control:focus {
   box-shadow: 5px 5px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.form_link {
+  text-align: center;
+  margin-top: 1em;
 }
 .page_heading {
   text-align: center;
