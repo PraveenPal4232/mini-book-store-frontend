@@ -45,6 +45,7 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .bookcard img {
   width: 255px;
   height: 400px;
@@ -55,12 +56,20 @@ footer {
   padding: 1em;
   border: 2px solid #000000;
   margin: 0 1em 2em 1em;
+  position: relative;
 }
 .bookcard:hover {
   box-shadow: 5px 5px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-
+.wishlist_icon {
+  position: absolute;
+  bottom: 1em;
+  right: 0;
+  padding: 0px 1em;
+  z-index: 1;
+  cursor: pointer;
+}
 /* Book Page */
 
 .book_page {
