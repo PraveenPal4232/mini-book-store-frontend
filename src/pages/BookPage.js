@@ -54,16 +54,45 @@ const BookPage = () => {
 
       },[]);
 
-      // Add to Wishlist
-      const addToWishlist = () => {
-        SetWishlist([...Wishlist, id] )
+      // Wishlist Status
+      const wishlistStatus = () => {
+        let newWishlist;
+        if(Wishlist.includes(id)){
+          newWishlist = Wishlist.filter(item => item !== id);
+        }
+        else{
+          newWishlist = [...Wishlist, id];
+        }
+      
+      SetWishlist(newWishlist)
+      SetWishlist((state) => {
+      //console.log(state)
+
+      const userId = localStorage.getItem('userId');
+      const userToken = localStorage.getItem('token');
+
+      const formData = new FormData();
+      for(var x = 0; x < state.length; x++) {
+        formData.append('wishlist', state[x])
+      }
+      const config = {
+          headers: {
+            'content-type': 'multipart/form-data',
+            'Authorization': `token ${userToken}`
+          }
+      };
+  
+      axios
+        .put(
+          `http://localhost:5000/users/wishlist/${userId}`, formData, config
+        )
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+
+          return state;
+      })
       };
 
-      // Remove from Wishlist
-      const removefromWishlist = () => {
-        const newWishlist = Wishlist.filter(item => item !== id);
-        SetWishlist(newWishlist)
-      };
 
     return (
         <main>
@@ -85,9 +114,9 @@ const BookPage = () => {
                     <p className="book_summary">{Book.summary}</p>
                     {
                         Wishlist.includes(id) ?
-                        <button className="btn btn-dark add_to_wishlist" onClick={removefromWishlist}>Remove from Wishlist</button>
+                        <button className="btn btn-dark add_to_wishlist" onClick={wishlistStatus}>Remove from Wishlist</button>
                         :
-                        <button className="btn btn-dark add_to_wishlist" onClick={addToWishlist}>Add to Wishlist</button>
+                        <button className="btn btn-dark add_to_wishlist" onClick={wishlistStatus}>Add to Wishlist</button>
                     }
                     
                     {/* <a href={`./edit/${id}`} className="book_edit" >Edit Book</a> */}
