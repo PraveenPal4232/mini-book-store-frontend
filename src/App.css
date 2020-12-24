@@ -10,6 +10,9 @@
 html {
   font-family: "Roboto Slab", serif;
 }
+body {
+  background-color: #f4f1ea;
+}
 a {
   color: #000000;
   text-decoration: none;
@@ -21,27 +24,50 @@ a:focus {
 }
 header {
   padding: 1em;
+  display: flex;
+  justify-content: space-between;
 }
 .logo {
   text-align: center;
 }
 .logo img {
-  width: 100px;
+  height: 50px;
 }
-nav {
-  display: flex;
+.nav {
+  display: none;
   justify-content: center;
   padding: 1em;
 }
-nav a {
-  padding: 0.5rem;
+.nav li {
+  list-style: none;
+  margin: 0 10px;
+  padding: 10px;
+  position: relative;
+}
+.nav_sub {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  padding: 5px;
+  background-color: #ffffff;
+  z-index: 3;
+  visibility: hidden;
+  transition: 0.25s ease;
+  pad: 0px;
+}
+.nav_sub li {
+  margin: 0;
+  padding: 5px 10px;
+}
+.nav li:hover .nav_sub {
+  visibility: visible;
+  transition: 0.25s ease;
 }
 main {
-  min-height: calc(100vh - 250px);
+  min-height: calc(100vh - 150px);
   padding: 0 1em;
 }
 footer {
-  margin-top: 2em;
   padding: 1em;
   text-align: center;
 }
@@ -52,16 +78,16 @@ footer {
 }
 
 .bookcard img {
-  width: 255px;
-  height: 400px;
+  width: 100%;
   object-fit: cover;
 }
 .bookcard {
-  width: calc(255px + 2em);
+  width: calc(50% - 1em);
   padding: 1em;
   border: 2px solid #000000;
-  margin: 0 1em 2em 1em;
+  margin: 0 0.5em 1em 0.5em;
   position: relative;
+  border-radius: 5px;
 }
 .bookcard:hover {
   box-shadow: 5px 5px;
@@ -78,7 +104,6 @@ footer {
 /* Book Page */
 
 .book_page {
-  padding: 0 25px;
   margin-bottom: 1em;
 }
 .book_warp {
@@ -88,8 +113,11 @@ footer {
 .book_image_box img {
   width: 100%;
   box-shadow: 7px 7px;
+  border-radius: 5px;
 }
 .book_content {
+  display: flex;
+  align-items: center;
   padding: 1em 0;
 }
 .book_summary {
@@ -211,9 +239,27 @@ blockquote {
 }
 
 @media (min-width: 768px) {
+  header {
+    padding: 1em 3em;
+  }
+  .logo img {
+    height: 70px;
+  }
+  .nav {
+    display: flex;
+  }
   .book_page {
     max-width: 1000px;
     margin: auto;
+    padding: 0 25px;
+  }
+  .bookcard img {
+    width: 255px;
+    height: 400px;
+  }
+  .bookcard {
+    width: calc(255px + 2em);
+    margin: 0 1em 2em 1em;
   }
   .about_page {
     max-width: 700px;
@@ -230,5 +276,8 @@ blockquote {
   .add_to_wishlist {
     width: 200px;
     display: block;
+  }
+  footer {
+    margin-top: 2em;
   }
 }

@@ -49,7 +49,9 @@ const Register = () => {
           .post(
             `http://localhost:5000/users/register`, formData, config
           )
-          .then((res) => console.log(res.data))
+          .then((res) => 
+          console.log(res.data)
+          )
           .catch((err) => console.log(err));
 
       };

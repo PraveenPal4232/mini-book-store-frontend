@@ -32,6 +32,7 @@ const [AuthUser, SetAuthUser] = useState({
           localStorage.setItem("userId", res.data.id);
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("isAuthor", res.data.isAuthor);
+          window.location.href = "/";
         })
           .catch((err) => console.log(err));
 
@@ -78,7 +79,7 @@ const [AuthUser, SetAuthUser] = useState({
               Login User
               </button>
             </form>
-            <p className="form_link">Don't have an account? <a href="/register">Create one</a></p>
+            <p className="form_link">Don't have an account? <a href="/register">Register</a></p>
 
                 </div>
             </div>

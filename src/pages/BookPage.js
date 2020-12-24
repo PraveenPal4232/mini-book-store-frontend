@@ -108,6 +108,7 @@ const BookPage = () => {
                     title={Book.name} />
                     </div>
                     <div className="book_content">
+                    <div>
                     <h3>By {Book.author}</h3>
                     <h1>{Book.name}</h1>
                     <h4>{Book.price}</h4>
@@ -120,6 +121,7 @@ const BookPage = () => {
                     }
                     
                     {/* <a href={`./edit/${id}`} className="book_edit" >Edit Book</a> */}
+                    </div>
                     </div>
                     
                 </div>
