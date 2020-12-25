@@ -26,6 +26,8 @@ header {
   padding: 1em;
   display: flex;
   justify-content: space-between;
+  border-bottom: 2px solid #b5a4a4;
+  margin-bottom: 1em;
 }
 .logo {
   text-align: center;
@@ -36,7 +38,6 @@ header {
 .nav {
   display: none;
   justify-content: center;
-  padding: 1em;
 }
 .nav li {
   list-style: none;
@@ -237,13 +238,36 @@ blockquote {
   height: 100px;
   object-fit: cover;
 }
+.alert {
+  padding: 1em;
+  border: 2px solid;
+  border-radius: 0.25rem;
+  position: absolute;
+  bottom: 5em;
+  width: calc(100% - 2em);
+}
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.error svg {
+  fill: #721c24;
+}
+.alert_close {
+  float: right;
+}
+.alert_close {
+  cursor: pointer;
+}
 
 @media (min-width: 768px) {
   header {
     padding: 1em 3em;
+    margin-bottom: 2em;
   }
   .logo img {
-    height: 70px;
+    height: 60px;
   }
   .nav {
     display: flex;
@@ -279,5 +303,9 @@ blockquote {
   }
   footer {
     margin-top: 2em;
+  }
+  .alert {
+    max-width: 500px;
+    left: calc(50% - 250px);
   }
 }

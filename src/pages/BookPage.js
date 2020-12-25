@@ -55,8 +55,14 @@ const BookPage = () => {
       },[]);
 
       // Wishlist Status
-      const wishlistStatus = () => {
+      const wishlistStatus = (id) => {
         let newWishlist;
+        const userId = localStorage.getItem('userId');
+        const userToken = localStorage.getItem('token');
+        if(userId == null){
+          window.location.href = "/login";
+        }
+        else{
         if(Wishlist.includes(id)){
           newWishlist = Wishlist.filter(item => item !== id);
         }
@@ -67,9 +73,6 @@ const BookPage = () => {
       SetWishlist(newWishlist)
       SetWishlist((state) => {
       //console.log(state)
-
-      const userId = localStorage.getItem('userId');
-      const userToken = localStorage.getItem('token');
 
       const formData = new FormData();
       for(var x = 0; x < state.length; x++) {
@@ -91,6 +94,7 @@ const BookPage = () => {
 
           return state;
       })
+    }
       };
 
 

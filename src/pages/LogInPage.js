@@ -6,12 +6,18 @@ const [AuthUser, SetAuthUser] = useState({
       authEmail:"",
       authPassword:""
   });
+  const [AlertStatus, SetAlertStatus] = useState(false);
 
       // Handel Auth Change
       const handleAuthChange = (e) => {
         SetAuthUser({...AuthUser,
           [e.target.name]: e.target.value,
         });
+      };
+
+      // Update Alert Status
+      const updateAlertStatus = (prevState) => {
+        SetAlertStatus({AlertStatus: !prevState.AlertStatus});
       };
 
       // Login AutUser to server
@@ -34,8 +40,11 @@ const [AuthUser, SetAuthUser] = useState({
           localStorage.setItem("isAuthor", res.data.isAuthor);
           window.location.href = "/";
         })
-          .catch((err) => console.log(err));
-
+          .catch((err) => {
+            console.log(err);
+            SetAlertStatus({AlertStatus: true});
+          });
+          
       };
 
     return (
@@ -83,6 +92,19 @@ const [AuthUser, SetAuthUser] = useState({
 
                 </div>
             </div>
+
+            {
+              AlertStatus ?
+            <div className="alert error">Incorrect username or password.
+            <span class="alert_close" title="Close Alert" onClick={updateAlertStatus}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 3.752l-4.423-3.752-7.771 9.039-7.647-9.008-4.159 4.278c2.285 2.885 5.284 5.903 8.362 8.708l-8.165 9.447 1.343 1.487c1.978-1.335 5.981-4.373 10.205-7.958 4.304 3.67 8.306 6.663 10.229 8.006l1.449-1.278-8.254-9.724c3.287-2.973 6.584-6.354 8.831-9.245z"/></svg>
+            </span>
+            </div>
+            :
+            <span>&nbsp;</span>
+            }
+
+            
         </main>
     )
 }
