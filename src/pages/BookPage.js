@@ -16,6 +16,8 @@ const BookPage = () => {
     const [Wishlist, SetWishlist] = useState([]);
     const [IsLoading, SetIsLoading] = useState(false);
     let { id } = useParams();
+    const userId = localStorage.getItem('userId');
+    const userToken = localStorage.getItem('token');
 
     // Fetch book from server
     const fetchBook = () => {
@@ -47,7 +49,12 @@ const BookPage = () => {
         fetchBook();
 
         // Fetch user from server
-        fetchUser();
+        if(userId !== null){
+          fetchUser();
+        }
+        else{
+          // Do something
+        }
 
         // Done Loading data from server
         SetIsLoading(false);
@@ -57,8 +64,6 @@ const BookPage = () => {
       // Wishlist Status
       const wishlistStatus = (id) => {
         let newWishlist;
-        const userId = localStorage.getItem('userId');
-        const userToken = localStorage.getItem('token');
         if(userId == null){
           window.location.href = "/login";
         }

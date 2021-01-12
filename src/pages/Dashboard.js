@@ -7,12 +7,15 @@ const Dashboard = () => {
     });
     const [Wishlist, SetWishlist] = useState([]);
     const [IsLoading, SetIsLoading] = useState(false);
+    const userId = localStorage.getItem('userId');
 
     // Fetch user from server
     const fetchUser = () => {
-        const uID = localStorage.getItem('userId');
+
+      console.log(userId);
+        
         axios
-        .get(`http://localhost:5000/users/${uID}`)
+        .get(`http://localhost:5000/users/${userId}`)
         .then((res) => {
           SetUser(res.data);
         })
@@ -35,7 +38,12 @@ const Dashboard = () => {
         SetIsLoading(true);
 
         // Fetch user from server
-        fetchUser();
+        if(userId !== null){
+          fetchUser();
+        }
+        else{
+          window.location.href = "/login";
+        }
 
         // Fetch Wishlist from server
         fetchWishlist();

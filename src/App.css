@@ -246,6 +246,8 @@ blockquote {
   position: absolute;
   bottom: 5em;
   width: calc(100% - 2em);
+  position: fixed;
+  z-index: 2;
 }
 .error {
   color: #721c24;

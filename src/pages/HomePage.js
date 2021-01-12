@@ -8,6 +8,9 @@ const HomePage = () => {
     const [Wishlist, SetWishlist] = useState([]);
     const [IsLoading, SetIsLoading] = useState(false);
 
+    const userId = localStorage.getItem('userId');
+    const userToken = localStorage.getItem('token');
+
     // Fetch books from server
     const fetchBooks = () => {
         axios
@@ -39,7 +42,13 @@ const HomePage = () => {
         fetchBooks();
 
         // Fetch user from server
-        fetchUser();
+        if(userId !== null){
+          fetchUser();
+        }
+        else{
+          // Do something
+        }
+        
 
         // Done Loading data from server
         SetIsLoading(false);
@@ -49,9 +58,7 @@ const HomePage = () => {
       // Wishlist Status
       const wishlistStatus = (id) => {
         let newWishlist;
-        const userId = localStorage.getItem('userId');
-        const userToken = localStorage.getItem('token');
-        if(userId == null){
+        if(userId === null){
           window.location.href = "/login";
         }
         else{
