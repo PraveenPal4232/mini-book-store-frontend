@@ -263,6 +263,13 @@ blockquote {
 .alert_close {
   cursor: pointer;
 }
+.humber_menu {
+  align-items: center;
+  display: flex;
+}
+.humber_menu span {
+  cursor: pointer;
+}
 
 @media (min-width: 768px) {
   header {
