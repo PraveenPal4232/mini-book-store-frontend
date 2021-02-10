@@ -17,7 +17,8 @@ const Header = () => {
                    <img src={Logo}  alt="Logo"/></a>
             </div>
 
-            <nav>
+            <nav className={ 
+            IsNavOpen ? "mobile_menu open_menu" : "mobile_menu close_menu"}>
                 <ul className="nav">
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>

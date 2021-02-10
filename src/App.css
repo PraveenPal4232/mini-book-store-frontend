@@ -31,13 +31,28 @@ header {
 }
 .logo {
   text-align: center;
+  z-index: 3;
 }
 .logo img {
   height: 50px;
 }
+
+@media only screen and (max-width: 767px) {
+  nav {
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    left: -100vw;
+    top: 0;
+    transition: 0.3s;
+  }
+}
 .nav {
-  display: none;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
 }
 .nav li {
   list-style: none;
@@ -63,6 +78,18 @@ header {
 .nav li:hover .nav_sub {
   visibility: visible;
   transition: 0.25s ease;
+}
+.humber_menu {
+  align-items: center;
+  display: flex;
+  z-index: 3;
+}
+.humber_menu span {
+  cursor: pointer;
+}
+.open_menu {
+  left: 0;
+  transition: 0.3s;
 }
 main {
   min-height: calc(100vh - 150px);
@@ -263,13 +290,6 @@ blockquote {
 .alert_close {
   cursor: pointer;
 }
-.humber_menu {
-  align-items: center;
-  display: flex;
-}
-.humber_menu span {
-  cursor: pointer;
-}
 
 @media (min-width: 768px) {
   header {
@@ -281,7 +301,11 @@ blockquote {
   }
   .nav {
     display: flex;
+    flex-direction: row;
     padding-top: 0.75em;
+  }
+  .humber_menu {
+    display: none;
   }
   .book_page {
     max-width: 1000px;

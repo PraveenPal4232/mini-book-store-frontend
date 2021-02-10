@@ -5,6 +5,7 @@ import AboutImage2 from "../assets/about2.webp"
 
 const AboutPage = () => {
     return (
+      <main>
         <div className="book_page about_page">
                 <div className="about_page_warp">
                   <h1 className="page_heading">About Us</h1>
@@ -18,7 +19,7 @@ const AboutPage = () => {
                   <p>Mini Book Store is an exceptional website where you can find hundreds of interesting novels and used online books. One of the best features of this website is that you can pick any novel and buy it for just ₹99. You can find almost every bestseller here but if your favorite novel isn’t there in the inventory, you can request that novel and it’ll be made available to you. Another unique service that you get here is that you can exchange your novels with the ones present in the inventory.</p>
                   </div>
                   </div>
-                  
+                  </main>
                       )
 }
 
