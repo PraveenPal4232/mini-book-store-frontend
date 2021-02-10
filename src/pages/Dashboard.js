@@ -15,7 +15,7 @@ const Dashboard = () => {
       console.log(userId);
         
         axios
-        .get(`http://localhost:5000/users/${userId}`)
+        .get(`https://mini-book-store-backend.herokuapp.com/users/${userId}`)
         .then((res) => {
           SetUser(res.data);
         })
@@ -25,7 +25,7 @@ const Dashboard = () => {
     // Fetch Wishlist from server
     const fetchWishlist = () => {
       axios
-      .get(`http://localhost:5000/books/`)
+      .get(`https://mini-book-store-backend.herokuapp.com/books/`)
       .then((res) => {
         SetWishlist(res.data);
       })
@@ -57,7 +57,7 @@ const Dashboard = () => {
         <div className="book_page user_dashboard">
                 <div className="user_dashboard_warp">
                   <h1 className="page_heading">User Dashboard</h1>
-                  <img src={`http://localhost:5000/${User.profile}`} alt={User.name} title={User.name} className="user_profile" />
+                  <img src={`https://mini-book-store-backend.herokuapp.com/${User.profile}`} alt={User.name} title={User.name} className="user_profile" />
                   <br />
                  <p>Name : {User.name}</p>
                  <p>Email : {User.email}</p>

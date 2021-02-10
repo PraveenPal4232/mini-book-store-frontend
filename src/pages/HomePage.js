@@ -14,7 +14,7 @@ const HomePage = () => {
     // Fetch books from server
     const fetchBooks = () => {
         axios
-        .get("http://localhost:5000/books")
+        .get("https://mini-book-store-backend.herokuapp.com/books")
         .then((res) => {
           SetBookList(res.data);
         })
@@ -25,7 +25,7 @@ const HomePage = () => {
     const fetchUser = () => {
         const uID = localStorage.getItem('userId');
         axios
-        .get(`http://localhost:5000/users/${uID}`)
+        .get(`https://mini-book-store-backend.herokuapp.com/users/${uID}`)
         .then((res) => {
             SetWishlist(res.data.wishlist);
         })
@@ -86,7 +86,7 @@ const HomePage = () => {
   
       axios
         .put(
-          `http://localhost:5000/users/wishlist/${userId}`, formData, config
+          `https://mini-book-store-backend.herokuapp.com/users/wishlist/${userId}`, formData, config
         )
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err));

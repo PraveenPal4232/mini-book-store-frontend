@@ -47,7 +47,7 @@ const Register = () => {
     
         axios
           .post(
-            `http://localhost:5000/users/register`, formData, config
+            `https://mini-book-store-backend.herokuapp.com/users/register`, formData, config
           )
           .then((res) => 
           console.log(res.data)

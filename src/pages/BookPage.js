@@ -22,7 +22,7 @@ const BookPage = () => {
     // Fetch book from server
     const fetchBook = () => {
         axios
-        .get(`http://localhost:5000/books/${id}`)
+        .get(`https://mini-book-store-backend.herokuapp.com/books/${id}`)
         .then((res) => {
           SetBook(res.data);
         })
@@ -33,7 +33,7 @@ const BookPage = () => {
     const fetchUser = () => {
         const uID = localStorage.getItem('userId');
         axios
-        .get(`http://localhost:5000/users/${uID}`)
+        .get(`https://mini-book-store-backend.herokuapp.com/users/${uID}`)
         .then((res) => {
             SetWishlist(res.data.wishlist);
         })
@@ -92,7 +92,7 @@ const BookPage = () => {
   
       axios
         .put(
-          `http://localhost:5000/users/wishlist/${userId}`, formData, config
+          `https://mini-book-store-backend.herokuapp.com/users/wishlist/${userId}`, formData, config
         )
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err));
@@ -112,7 +112,7 @@ const BookPage = () => {
                 <div className="book_warp">
                     <div className="book_image_box">
                     <img 
-                    src={`http://localhost:5000/${Book.cover}`}
+                    src={`https://mini-book-store-backend.herokuapp.com/${Book.cover}`}
                     alt={Book.name}
                     title={Book.name} />
                     </div>

@@ -5,7 +5,7 @@ const BookCard = (props) => {
         <div className="bookcard">
             <a href={`/book/${props.id}`} >
             <div className="bookcard_inner">
-                <img src={`http://localhost:5000/${props.BookCover}`} alt={props.BookName} title={props.BookName} />
+                <img src={`https://mini-book-store-backend.herokuapp.com/${props.BookCover}`} alt={props.BookName} title={props.BookName} />
                 {/* <h2>{props.BookName}</h2> */}
                 <p className="book_author">by {props.BookAuthor}</p>
                 {/* <h2 className="book_name">{props.BookName}</h2> */}

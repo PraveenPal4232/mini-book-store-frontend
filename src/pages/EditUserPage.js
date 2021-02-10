@@ -18,7 +18,7 @@ const EditUserPge = () => {
     const fetchUser = () => {
         const uID = localStorage.getItem('userId');
         axios
-        .get(`http://localhost:5000/users/${uID}`)
+        .get(`https://mini-book-store-backend.herokuapp.com/users/${uID}`)
         .then((res) => {
           SetUser(res.data);
           //console.log(res.data);
@@ -82,7 +82,7 @@ const EditUserPge = () => {
     
         axios
           .post(
-            `http://localhost:5000/users/update/${userId}`, formData, config
+            `https://mini-book-store-backend.herokuapp.com/users/update/${userId}`, formData, config
           )
           .then((res) => console.log(res.data))
           .catch((err) => console.log(err));

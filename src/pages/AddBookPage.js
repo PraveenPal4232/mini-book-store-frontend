@@ -41,7 +41,7 @@ const AddBookPage = () => {
     
         axios
           .post(
-            `http://localhost:5000/books/add`, formData, config
+            `https://mini-book-store-backend.herokuapp.com/books/add`, formData, config
           )
           .then((res) => console.log(res.data))
           .catch((err) => console.log(err));

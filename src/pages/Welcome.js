@@ -59,7 +59,7 @@ const Welcome = () => {
     
         axios
           .post(
-            `http://localhost:5000/users/login`, formData, config
+            `https://mini-book-store-backend.herokuapp.com/users/login`, formData, config
           )
           .then((res) => console.log(res.data))
           .catch((err) => console.log(err));
@@ -78,7 +78,7 @@ const Welcome = () => {
     
         axios
           .post(
-            `http://localhost:5000/users/login`, logInUser
+            `https://mini-book-store-backend.herokuapp.com/users/login`, logInUser
           )
           .then((res) => {
           console.log(res.data);

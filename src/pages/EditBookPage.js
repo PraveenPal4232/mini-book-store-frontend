@@ -18,7 +18,7 @@ const EditBookPage = () => {
     // Fetch book from server
     const fetchBook = () => {
         axios
-        .get(`http://localhost:5000/books/${id}`)
+        .get(`https://mini-book-store-backend.herokuapp.com/books/${id}`)
         .then((res) => {
           SetBook(res.data);
         })
@@ -69,7 +69,7 @@ const EditBookPage = () => {
     
         axios
           .post(
-            `http://localhost:5000/books/update/${id}`, formData, config
+            `https://mini-book-store-backend.herokuapp.com/books/update/${id}`, formData, config
           )
           .then((res) => console.log(res.data))
           .catch((err) => console.log(err));
@@ -82,7 +82,7 @@ const EditBookPage = () => {
     
         axios
           .delete(
-            `http://localhost:5000/books/${id}`)
+            `https://mini-book-store-backend.herokuapp.com/books/${id}`)
           .then((res) => console.log(res.data))
           .catch((err) => console.log(err));
 
